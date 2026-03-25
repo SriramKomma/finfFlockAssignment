@@ -1,7 +1,8 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api/v1";
+const isProd = process.env.NODE_ENV === "production";
+export const API_URL = process.env.NEXT_PUBLIC_API_URL || (isProd ? "https://taskmaster-backend-z4m7.onrender.com/api/v1" : "http://127.0.0.1:8000/api/v1");
 
 const api = axios.create({
   baseURL: API_URL,
